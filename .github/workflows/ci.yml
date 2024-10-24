@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
 
@@ -46,7 +49,7 @@ jobs:
     - name: Publish test report
       if: always()
       uses: peaceiris/actions-gh-pages@v4
-      env:
+      with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: allure-history
