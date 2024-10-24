@@ -1,4 +1,4 @@
-# Simple API Automation [![Automation Tests](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)
+# Simple API Automation ![Automation Tests](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)
 
 Example framework using Java, REST Assured, TestNG, Gradle, Allure Reports
 
