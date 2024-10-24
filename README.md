@@ -25,7 +25,9 @@ Example framework using Java, REST Assured, TestNG, Gradle, Allure Reports
 
 Note: You can also run the tests directly from IntelliJ
 
-## Tests are run in GitHub Actions and report is deployed on GitHub Pages
+## CI
+
+Tests are run in GitHub Actions and report is deployed on GitHub Pages.
 
 You can find the report at the top of this README
     
