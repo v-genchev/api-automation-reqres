@@ -44,9 +44,9 @@ jobs:
         keep_reports: 20
 
     - name: Publish test report
-      uses: peaceiris/actions-gh-pages@v3
       if: always()
-      with:
-        personal_token: ${{ secrets.SECRET_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: allure-history
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history
