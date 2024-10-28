@@ -1,4 +1,5 @@
 import client.UserClient;
+import helpers.LoggingAssertion;
 import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 import model.Support;
@@ -21,7 +22,8 @@ public class UserListTest extends BaseTest {
     @Test(description = "Verify listing of users successful")
     void listUsersSuccessResponse() {
         Response userListResponse = UserClient.listUsers(DEFAULT_PAGE_TO_REQUEST);
-        assertThat(userListResponse.getStatusCode(), is(HttpStatus.SC_OK));
+        LoggingAssertion.assertThat(userListResponse.getStatusCode(), is(HttpStatus.SC_OK),
+                "status is successful");
     }
 
     @Test(description = "Fetch user list for non-existent page")
