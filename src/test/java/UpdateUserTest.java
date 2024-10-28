@@ -10,6 +10,9 @@ import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 @Feature("User Update")
 @Test(groups = {"users"})
 public class UpdateUserTest extends BaseTest {
@@ -31,7 +34,7 @@ public class UpdateUserTest extends BaseTest {
     void updateUserSuccess() {
         user.setJob("Cleaning guy");
         Response updatedUserResponse = UserClient.updateUser(createdUserId, user);
-        Assert.assertEquals(updatedUserResponse.getStatusCode(), HttpStatus.SC_OK);
+        assertThat(updatedUserResponse.getStatusCode(), is(HttpStatus.SC_OK));
     }
 
     @Test(description = "Verify user data after update")
@@ -39,7 +42,7 @@ public class UpdateUserTest extends BaseTest {
         user.setJob("Cleaning guy");
         User updatedUser = UserClient.updateUser(createdUserId, user).as(User.class);
 
-        Assert.assertEquals(updatedUser.getJob(), user.getJob());
+        assertThat(updatedUser.getJob(), is(user.getJob()));
     }
 
     @Test(description = "Verify user updatedAt time")
@@ -51,6 +54,7 @@ public class UpdateUserTest extends BaseTest {
         LocalDateTime headerDate = Utils.parseDate(headerDateString, HEADER_DATE_FORMATTER);
         LocalDateTime createdAt = Utils.parseDate(updatedUser.getUpdatedAt());
 
-        Assert.assertEquals(headerDate.withNano(0), createdAt.withNano(0));
+        assertThat(headerDate.withNano(0),
+                is(createdAt.withNano(0)));
     }
 }
