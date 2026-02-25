@@ -5,7 +5,7 @@ Example framework using Java, REST Assured, TestNG, Gradle, Allure Reports
 
 ## Requirements
 
-1. Java 17
+1. Java 21
 2. Gradle
 
 ## Setup
